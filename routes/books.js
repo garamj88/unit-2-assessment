@@ -1,10 +1,14 @@
 import { Router } from 'express'
+import * as booksCtrl from "../controller/books.js"
+
 const router = Router()
 
-/* GET users listing. */
-router.get('/', function(req, res) {
-  res.send('respond with a resource')
-})
+router.get('/', booksCtrl.index)
+
+router.get('/new', booksCtrl.new)
+router.post('/', booksCtrl.create)
+router.delete('/:id', booksCtrl.delete)
+
 
 export {
   router
